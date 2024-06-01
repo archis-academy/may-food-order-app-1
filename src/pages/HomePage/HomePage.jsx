@@ -1,10 +1,10 @@
 import Sidebar from "@/components/Sidebar/Sidebar";
 import "./HomePage.scss";
+import DishesMenu from "./DishesMenu/DishesMenu";
 import CategoryTabs from "@/components/CategoryTabs/CategoryTabs";
-import DishesMenu from "@/components/DishesMenu/DishesMenu";
 import { useState, useEffect } from "react";
-import { foods } from "@/db/food";
 import { useAuth } from "@/components/AuthProvider";
+import { foods } from "@/db/food";
 
 function HomePage() {
   const { fireStoreUser } = useAuth();
@@ -14,13 +14,10 @@ function HomePage() {
   return (
     <div>
       <Sidebar />
-
       <div className="mainRoot">
-
         <CategoryTabs setCategory={setCategory} category={category} />
-
+        <DishesMenu category={category} foods={foods} />
       </div>
-
     </div>
   );
 }
